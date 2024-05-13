@@ -59,5 +59,12 @@ public class UserService {
             throw new RuntimeException("Error al guardar la imagen");
         }
     }
-
+    
+    public User actualizarDescripcionUsuario(Long id, String nuevaDescripcion) {
+    	User usuario = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + id));
+        usuario.setDescripcion(nuevaDescripcion);
+        userRepository.save(usuario);
+        return new User(usuario.getId(), usuario.getNombre(),usuario.getEmail(), usuario.getPassword(), usuario.getUsuario(), usuario.getImagen(), usuario.getDescripcion());
+    }
 }

@@ -1,5 +1,6 @@
 package com.app.usuarios.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,17 +20,70 @@ public class User {
 	private String email;
 	private String password;
 	private String imagen;
+	private String imagen1;
+	private String imagen2;
+	private String imagen3;
+	private String imagen4;
+	private String descripcion;
+	@Column(name = "IMAGEASSET")
+	private String imageAsset;
+	private String distance;
 
 	public User() {
 	}
+	
 
-	public User(long id, String nombre, String email, String password, String usuario,String imagen) {
+	public User(long id, String nombre, String usuario, String email, String password, String imagen, String imagen1,
+			String imagen2, String imagen3, String imagen4, String descripcion, String imageAsset, String distance) {
+	
+		this.id = id;
+		this.nombre = nombre;
+		this.usuario = usuario;
+		this.email = email;
+		this.password = password;
+		this.imagen = imagen;
+		this.imagen1 = imagen1;
+		this.imagen2 = imagen2;
+		this.imagen3 = imagen3;
+		this.imagen4 = imagen4;
+		this.descripcion = descripcion;
+		this.imageAsset = imageAsset;
+		this.distance = distance;
+	}
+
+	public User(long id, String nombre, String usuario, String email, String password, String imagen, String imagen1,
+			String imagen2, String imagen3, String imagen4, String descripcion) {
+	
+		this.id = id;
+		this.nombre = nombre;
+		this.usuario = usuario;
+		this.email = email;
+		this.password = password;
+		this.imagen = imagen;
+		this.imagen1 = imagen1;
+		this.imagen2 = imagen2;
+		this.imagen3 = imagen3;
+		this.imagen4 = imagen4;
+		this.descripcion = descripcion;
+	}
+
+	public User(long id, String nombre, String email, String password, String usuario,String imagen, String descripcion) {
 		this.id = id;
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
 		this.usuario = usuario;
 		this.imagen = imagen;
+		this.descripcion = descripcion;
+	}
+	
+
+	public User(long id, String nombre, String usuario, String email, String descripcion) {
+		this.id = id;
+		this.nombre = nombre;
+		this.usuario = usuario;
+		this.email = email;
+		this.descripcion = descripcion;
 	}
 
 	public long getId() {
@@ -79,11 +133,67 @@ public class User {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nombre=" + nombre + ", email=" + email + ", password=" + password + "]";
 	}
 
+	public String getImagen1() {
+		return imagen1;
+	}
+
+	public void setImagen1(String imagen1) {
+		this.imagen1 = imagen1;
+	}
+
+
+	public String getImagen2() {
+		return imagen2;
+	}
+
+	public void setImagen2(String imagen2) {
+		this.imagen2 = imagen2;
+	}
+
+	public String getImagen3() {
+		return imagen3;
+	}
+
+	public void setImagen3(String imagen3) {
+		this.imagen3 = imagen3;
+	}
+
+	public String getImagen4() {
+		return imagen4;
+	}
+
+	public void setImagen4(String imagen4) {
+		this.imagen4 = imagen4;
+	}
+
+	public String getImageAsset() {
+		return imageAsset;
+	}
+
+	public void setImageAsset(String imageAsset) {
+		this.imageAsset = imageAsset;
+	}
+
+	public String getDistance() {
+		return distance;
+	}
+
+	public void setDistance(String distance) {
+		this.distance = distance;
+	}
 	
 }
