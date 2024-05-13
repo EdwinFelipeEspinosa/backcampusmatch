@@ -51,41 +51,6 @@ public class User {
 		this.distance = distance;
 	}
 
-	public User(long id, String nombre, String usuario, String email, String password, String imagen, String imagen1,
-			String imagen2, String imagen3, String imagen4, String descripcion) {
-	
-		this.id = id;
-		this.nombre = nombre;
-		this.usuario = usuario;
-		this.email = email;
-		this.password = password;
-		this.imagen = imagen;
-		this.imagen1 = imagen1;
-		this.imagen2 = imagen2;
-		this.imagen3 = imagen3;
-		this.imagen4 = imagen4;
-		this.descripcion = descripcion;
-	}
-
-	public User(long id, String nombre, String email, String password, String usuario,String imagen, String descripcion) {
-		this.id = id;
-		this.nombre = nombre;
-		this.email = email;
-		this.password = password;
-		this.usuario = usuario;
-		this.imagen = imagen;
-		this.descripcion = descripcion;
-	}
-	
-
-	public User(long id, String nombre, String usuario, String email, String descripcion) {
-		this.id = id;
-		this.nombre = nombre;
-		this.usuario = usuario;
-		this.email = email;
-		this.descripcion = descripcion;
-	}
-
 	public long getId() {
 		return id;
 	}

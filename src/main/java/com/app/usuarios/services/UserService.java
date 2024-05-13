@@ -65,6 +65,18 @@ public class UserService {
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + id));
         usuario.setDescripcion(nuevaDescripcion);
         userRepository.save(usuario);
-        return new User(usuario.getId(), usuario.getNombre(),usuario.getEmail(), usuario.getPassword(), usuario.getUsuario(), usuario.getImagen(), usuario.getDescripcion());
+        return new User(usuario.getId(), 
+        		        usuario.getNombre(), 
+        		        usuario.getUsuario(), 
+        		        usuario.getDescripcion(), 
+        		        usuario.getEmail(), 
+        		        usuario.getPassword(), 
+        		        usuario.getImagen(), 
+        		        usuario.getImagen1(), 
+        		        usuario.getImagen2(), 
+        		        usuario.getImagen3(), 
+        		        usuario.getImagen4(), 
+        		        usuario.getImageAsset(), 
+        		        usuario.getDistance());
     }
 }

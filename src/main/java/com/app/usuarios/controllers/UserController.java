@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,7 +42,16 @@ public class UserController {
 	
 	@GetMapping("/users")
 	public List<User> getAllPersonas() {
-		return userService.getAllPersonas();
+	    List<User> allUsers = userService.getAllPersonas();
+	    List<User> usersWithImageAssets = new ArrayList<>();
+	    
+	    for (User user : allUsers) {
+	        if (user.getImageAsset() != null) {
+	            usersWithImageAssets.add(user);
+	        }
+	    }
+	    
+	    return usersWithImageAssets;
 	}
 	
 	@GetMapping("/userbyid")
@@ -70,7 +80,7 @@ public class UserController {
 		System.out.println("archivo: " + archivo);
 		String nombreArchivo = archivo.getOriginalFilename();
 		if(!archivo.isEmpty()) {
-			String nombre= actual.getId() + "_" + actual.getUsuario() + "_" + numImagen + "." +  nombreArchivo.substring(nombreArchivo.lastIndexOf(".") + 1);   //archivo.getOriginalFilename().replace(" ","");
+			String nombre=  actual.getEmail() + "_" + numImagen + "." +  nombreArchivo.substring(nombreArchivo.lastIndexOf(".") + 1);   //archivo.getOriginalFilename().replace(" ","");
 			java.nio.file.Path rutaArchivo=Paths.get("images").resolve(nombre).toAbsolutePath();
 			System.out.println(nombre);
 			try {
